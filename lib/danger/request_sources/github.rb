@@ -1,3 +1,4 @@
+# coding: utf-8
 require 'rest'
 require 'json'
 require 'base64'
@@ -12,7 +13,7 @@ module Danger
     end
 
     def client
-      token = ENV["DANGER_GITHUB_API_TOKEN"]
+      token = ENV["DANGER_GITHUB_API_TOKEN"] || ENV["GITHUB_API_TOKEN"]
       raise "No API given, please provide one using `DANGER_GITHUB_API_TOKEN`" unless token
 
       @client ||= Octokit::Client.new(
