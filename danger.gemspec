@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = Danger::DESCRIPTION
   spec.description   = 'Create a Dangerfile to introspect your pull request in CI, makes it easy to enforce social conventions like changelogs and tests.'
-  spec.homepage      = "http://github.com/orta/danger"
+  spec.homepage      = "http://github.com/danger/danger"
 
   spec.files         = Dir["lib/**/*"] + %w( bin/danger README.md LICENSE )
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
@@ -21,11 +21,12 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = ">= 2.0.0"
 
   spec.add_runtime_dependency 'claide'
-  spec.add_runtime_dependency 'git', "~> 1.2.9"
-  spec.add_runtime_dependency 'colored'
+  spec.add_runtime_dependency 'grit', '2.5.0'
+  spec.add_runtime_dependency 'colored', '~> 1.2'
   spec.add_runtime_dependency 'faraday'
-  spec.add_runtime_dependency 'octokit'
-  spec.add_runtime_dependency 'redcarpet'
+  spec.add_runtime_dependency 'octokit', '~> 4.2'
+  spec.add_runtime_dependency 'redcarpet', '~> 3.3'
+  spec.add_runtime_dependency 'terminal-table', '~> 1'
 
   spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rake", "~> 10.0"

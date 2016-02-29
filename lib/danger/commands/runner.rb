@@ -15,7 +15,7 @@ module Danger
 
     def validate!
       super
-      unless @dangerfile_path
+      if self.class == Runner && !@dangerfile_path
         help! "Could not find a Dangerfile."
       end
     end
@@ -39,7 +39,8 @@ module Danger
       ci_base = @base || gh.base_commit
       ci_head = @head || gh.head_commit
 
-      dm.env.scm.diff_for_folder(".", ci_base, ci_head)
+      dm.env.scm.diff_for_folder(".", from: ci_base, to: ci_head)
+
       dm.parse Pathname.new(@dangerfile_path)
 
       post_results(dm)
