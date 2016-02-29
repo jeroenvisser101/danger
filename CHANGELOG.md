@@ -1,3 +1,7 @@
+## master
+
+- Added plugin system - krausefx
+
 ## 0.5.2
 
 * Typo fixes for `danger init` - lumaxis 
